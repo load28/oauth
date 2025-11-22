@@ -1,0 +1,46 @@
+# Rust build artifacts
+/target/
+**/*.rs.bk
+*.pdb
+
+# Cargo.lock is committed for binary projects
+# For library projects, uncomment the line below:
+# Cargo.lock
+
+# Database files (temporary/test databases)
+*.db
+*.db-shm
+*.db-wal
+infrastructure/temp.db
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary directories
+tmp/
+temp/
+
+# SQLx offline mode query cache
+# .sqlx/ is intentionally NOT ignored
+# Keep it committed for offline compilation support

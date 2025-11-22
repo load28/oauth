@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "\n            UPDATE authorization_codes\n            SET used = 1\n            WHERE code = ?\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": []
+  },
+  "hash": "39713d8650ce5a0dc88353e9cb33edc76c2b717f9959fb78d2ebe1053e6cfe66"
+}

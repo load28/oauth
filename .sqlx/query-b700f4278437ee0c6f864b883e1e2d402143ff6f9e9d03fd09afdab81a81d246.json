@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "\n            DELETE FROM access_tokens\n            WHERE token = ?\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": []
+  },
+  "hash": "b700f4278437ee0c6f864b883e1e2d402143ff6f9e9d03fd09afdab81a81d246"
+}

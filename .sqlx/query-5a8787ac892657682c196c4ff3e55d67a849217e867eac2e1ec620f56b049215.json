@@ -1,0 +1,56 @@
+{
+  "db_name": "SQLite",
+  "query": "\n            SELECT id, client_type, name, redirect_uris, allowed_scopes, client_secret, created_at\n            FROM oauth_clients\n            WHERE id = ?\n            ",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Text"
+      },
+      {
+        "name": "client_type",
+        "ordinal": 1,
+        "type_info": "Text"
+      },
+      {
+        "name": "name",
+        "ordinal": 2,
+        "type_info": "Text"
+      },
+      {
+        "name": "redirect_uris",
+        "ordinal": 3,
+        "type_info": "Text"
+      },
+      {
+        "name": "allowed_scopes",
+        "ordinal": 4,
+        "type_info": "Text"
+      },
+      {
+        "name": "client_secret",
+        "ordinal": 5,
+        "type_info": "Text"
+      },
+      {
+        "name": "created_at",
+        "ordinal": 6,
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false
+    ]
+  },
+  "hash": "5a8787ac892657682c196c4ff3e55d67a849217e867eac2e1ec620f56b049215"
+}

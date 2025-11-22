@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "\n            INSERT INTO oauth_clients (id, client_type, name, redirect_uris, allowed_scopes, client_secret, created_at)\n            VALUES (?, 'public', ?, ?, ?, NULL, ?)\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 5
+    },
+    "nullable": []
+  },
+  "hash": "3b2b335efec471cc48f56fbc6ed603dca137ddb682e965d040b9c95fd97c66e9"
+}

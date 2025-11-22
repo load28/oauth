@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "\n            INSERT INTO authorization_codes (code, client_id, user_id, redirect_uri, scope, code_challenge, expires_at, created_at, used)\n            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 9
+    },
+    "nullable": []
+  },
+  "hash": "ac939ed97ed777544d378374e5ee945fe134acda3ede497a4ede1508126e9b4e"
+}
