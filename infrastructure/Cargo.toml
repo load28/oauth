@@ -25,6 +25,9 @@ async-trait = { workspace = true }
 # Time handling
 chrono = { workspace = true }
 
+# Error handling
+thiserror = { workspace = true }
+
 # Serialization
 serde = { workspace = true }
 serde_json = { workspace = true }
@@ -42,3 +45,7 @@ tracing-subscriber = { workspace = true }
 [dev-dependencies]
 # Testing
 actix-web = { workspace = true }
+
+[[bin]]
+name = "oauth-server"
+path = "src/main.rs"
