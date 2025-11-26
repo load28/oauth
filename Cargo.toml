@@ -1,5 +1,5 @@
 [workspace]
-members = ["domain", "application", "infrastructure"]
+members = ["domain", "application", "infrastructure", "bitcoin-predictor"]
 resolver = "2"
 
 [workspace.package]
