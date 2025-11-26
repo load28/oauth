@@ -1,0 +1,78 @@
+#!/bin/bash
+#
+# Bitcoin Price Predictor - One Command Execution
+# Usage: ./predict [options]
+#
+# Options:
+#   -v, --verbose     Enable verbose output
+#   -j, --json        Output in JSON format
+#   -t, --technical   Show only technical indicators
+#   -p, --price       Show only current price
+#   -h, --help        Show help
+#
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+# Parse arguments
+ARGS=""
+SUBCOMMAND=""
+FORMAT=""
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -v|--verbose)
+            ARGS="$ARGS --verbose"
+            shift
+            ;;
+        -j|--json)
+            FORMAT="--format json"
+            shift
+            ;;
+        -t|--technical)
+            SUBCOMMAND="technical"
+            shift
+            ;;
+        -p|--price)
+            SUBCOMMAND="price"
+            shift
+            ;;
+        -h|--help)
+            echo "Bitcoin Price Predictor"
+            echo ""
+            echo "Usage: ./predict [options]"
+            echo ""
+            echo "Options:"
+            echo "  -v, --verbose     Enable verbose output"
+            echo "  -j, --json        Output in JSON format"
+            echo "  -t, --technical   Show only technical indicators"
+            echo "  -p, --price       Show only current price"
+            echo "  -h, --help        Show this help"
+            echo ""
+            echo "Examples:"
+            echo "  ./predict              Run full prediction"
+            echo "  ./predict -j           Output prediction as JSON"
+            echo "  ./predict -t           Show technical indicators"
+            echo "  ./predict -p           Show current price"
+            exit 0
+            ;;
+        *)
+            ARGS="$ARGS $1"
+            shift
+            ;;
+    esac
+done
+
+# Build and run
+echo "Building bitcoin-predictor..."
+cargo build --release -p bitcoin-predictor --quiet 2>/dev/null || cargo build --release -p bitcoin-predictor
+
+echo ""
+
+if [ -n "$SUBCOMMAND" ]; then
+    ./target/release/bitcoin-predictor $ARGS $SUBCOMMAND
+else
+    ./target/release/bitcoin-predictor $ARGS predict $FORMAT
+fi
