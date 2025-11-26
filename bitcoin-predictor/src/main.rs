@@ -85,20 +85,20 @@ async fn main() -> Result<()> {
 }
 
 async fn run_prediction(cli: &Cli, format: &str) -> Result<()> {
-    info!("Running prediction analysis...");
+    info!("Running quant prediction analysis...");
 
     let engine = PredictionEngine::new()
         .with_weights(cli.technical_weight, cli.sentiment_weight);
 
-    let result = engine.predict().await?;
+    let (result, quant) = engine.predict().await?;
 
     match format {
         "json" => {
-            let json = serde_json::to_string_pretty(&result)?;
+            let json = serde_json::to_string_pretty(&quant)?;
             println!("{}", json);
         }
         _ => {
-            let report = engine.generate_report(&result);
+            let report = engine.generate_quant_report(&result, &quant);
             println!("{}", report);
         }
     }
